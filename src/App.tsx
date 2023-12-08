@@ -1,6 +1,43 @@
+import ImageCard from "./components/imageCard";
 import "./App.css";
 
+interface ImageData {
+  url: string;
+  exifInfo: string[];
+  title: string;
+  camera: string;
+  film: string;
+  time: string;
+}
+
 const App = () => {
+  const images: ImageData[] = [
+    {
+      url: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2952&q=80",
+      exifInfo: ['ƒ/5', '1/850s', 'ISO 125', '+1/3ev'],
+      title: "title",
+      camera: "SONY ICLE-7R V",
+      film: "PROVIA/Std",
+      time: "26 NOV 2023 3:58PM",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2902&q=80",
+      exifInfo: ['ƒ/5', '1/850s', 'ISO 125', '+1/3ev'],
+      title: "title",
+      camera: "SONY ICLE-7R V",
+      film: "PROVIA/Std",
+      time: "26 NOV 2023 3:58PM",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1463288889890-a56b2853c40f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3132&q=80",
+      exifInfo: ['ƒ/5', '1/850s', 'ISO 125', '+1/3ev'],
+      title: "title",
+      camera: "SONY ICLE-7R V",
+      film: "PROVIA/Std",
+      time: "26 NOV 2023 3:58PM",
+    },
+  ];
+
   return (
     <main className="md:container md:mx-auto px-4 pb-3 lg:px-6 lg:pb-6">
       <header className="grid grid-cols-1 md:grid-cols-12 gap-x-4 lg:gap-x-6 gap-y-4 max-w-7xl">
@@ -149,6 +186,19 @@ const App = () => {
         </div>
       </header>
       <div className="columns-3xs gap-8 space-y-8">
+        {images.map((image, index) => (
+          <ImageCard
+            key={index}
+            imageUrl={image.url}
+            exifInfo={image.exifInfo}
+            title={image.title}
+            camera={image.camera}
+            film={image.film}
+            time={image.time}
+          />
+        ))}
+      </div>
+      {/* <div className="columns-3xs gap-8 space-y-8">
         <img
           className="w-full aspect-video object-cover rounded-lg"
           src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2952&q=80"
@@ -162,10 +212,18 @@ const App = () => {
           src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2902&q=80"
         />
         <img
+          className="w-full aspect-video object-cover rounded-lg"
+          src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2952&q=80"
+        />
+        <img
           className="w-full aspect-square object-cover rounded-lg"
           src="https://images.unsplash.com/photo-1463288889890-a56b2853c40f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3132&q=80"
         />
-      </div>
+        <img
+          className="w-full aspect-video object-cover rounded-lg"
+          src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2952&q=80"
+        />
+      </div> */}
     </main>
   );
 };
